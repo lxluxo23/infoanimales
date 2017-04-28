@@ -4,10 +4,12 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class principal extends AppCompatActivity {
 
@@ -28,23 +30,20 @@ public class principal extends AppCompatActivity {
 
         lv1.setAdapter(adapter);
 
-        lv1.setOnClickListener(new View.OnClickListener() {
+
+        lv1.setOnClickListener(new AdapterView.OnClickListener() {
+
             @Override
-            public void onClick(View v) {
+            public void onClick(AdapterView, View view, int i, long l) {
 
-                Intent in = new Intent(getApplicationContext(), info.class);
-                startActivityForResult(in,1);
-
-            }
+                    String mensaje = "selcciono" + lv1.getItemAtPosition(i);
+                    Toast.makeText(getApplicationContext(), mensaje, Toast.LENGTH_LONG).show();
 
 
-        });
+                }
 
+            });
 
 
     }
-
-
-
-
 }
